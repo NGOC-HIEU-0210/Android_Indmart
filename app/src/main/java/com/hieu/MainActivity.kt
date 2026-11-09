@@ -25,10 +25,10 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
+    //
     @Inject
     lateinit var tokenManager: TokenManager
-
+    //
     private val deepLinkTriggered = mutableStateOf(false)
 
     override fun onCreate(savedInstanceState: Bundle?) {
