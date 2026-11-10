@@ -13,15 +13,17 @@ android {
     defaultConfig {
         applicationId = "com.hieu"
         minSdk = 26 // java.time cần API 26+
-        targetSdk = 37
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         // Emulator: 10.0.2.2. Máy thật: đổi sang IP LAN của máy tính (vd: http://192.168.1.15:9090/)
-        buildConfigField("String", "BASE_URL", "\"http://10.0.2.2:9090/\"")
-        buildConfigField("String", "KEYCLOAK_URL", "\"http://10.0.2.2:8080/\"")
+//        buildConfigField("String", "BASE_URL", "\"http://10.0.2.2:9090/\"")
+//        buildConfigField("String", "KEYCLOAK_URL", "\"http://10.0.2.2:8080/\"")
+        buildConfigField("String", "BASE_URL", "\"http://localhost:9090/\"")
+        buildConfigField("String", "KEYCLOAK_URL", "\"http://localhost:8080/\"")
         buildConfigField("String", "KEYCLOAK_REALM", "\"indmart\"")
         buildConfigField("String", "KEYCLOAK_CLIENT_ID", "\"indmart-web\"")
         buildConfigField("String", "AUTH_REDIRECT_URI", "\"indmart://callback\"")

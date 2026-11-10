@@ -44,6 +44,7 @@ class ProductPagingSource(
                 nextKey = if (response.last || response.content.isEmpty()) null else page + 1
             )
         } catch (e: Exception) {
+            android.util.Log.e("IndMart", "Load products failed", e)
             LoadResult.Error(e)
         }
     }

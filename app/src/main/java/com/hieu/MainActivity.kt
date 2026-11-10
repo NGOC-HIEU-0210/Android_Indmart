@@ -99,8 +99,7 @@ fun Preview() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {
-            // Preview giao diện độc lập
-            // Không sử dụng TokenManager hoặc Activity ở đây
+
         }
     }
 }

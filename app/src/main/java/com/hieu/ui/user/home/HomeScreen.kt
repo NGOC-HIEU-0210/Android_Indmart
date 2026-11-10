@@ -194,7 +194,20 @@ fun HomeScreen(
                     )
                 }
             }
-
+            when (val refresh = pagingProducts.loadState.refresh) {
+                is LoadState.Loading -> item(span = { GridItemSpan(2) }) {
+                    Box(Modifier.fillMaxWidth().padding(32.dp), contentAlignment = Alignment.Center) {
+                        CircularProgressIndicator()
+                    }
+                }
+                is LoadState.Error -> item(span = { GridItemSpan(2) }) {
+                    Column(Modifier.fillMaxWidth().padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text("Lỗi tải sản phẩm: ${refresh.error}", color = MaterialTheme.colorScheme.error)
+                        Button(onClick = { pagingProducts.retry() }) { Text("Thử lại") }
+                    }
+                }
+                else -> Unit
+            }
             // Danh sách sản phẩm phân trang (Paging 3)
             items(
                 count = pagingProducts.itemCount,
